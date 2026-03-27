@@ -1,3 +1,4 @@
+/* Powered By Google Gemini */
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -8,20 +9,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* Material You 核心颜色变量 */
+        /* 天蓝色莫奈配色方案 (基于 Material You 规范) */
         :root {
-            --md-sys-color-primary: #6750A4;
+            /* 主色调 (Primary) - 柔和的天蓝色 */
+            --md-sys-color-primary: #7CB9E8; 
             --md-sys-color-on-primary: #FFFFFF;
-            --md-sys-color-primary-container: #EADDFF;
-            --md-sys-color-on-primary-container: #21005D;
-            --md-sys-color-background: #FFFBFE;
-            --md-sys-color-on-background: #1C1B1F;
-            --md-sys-color-surface: #FFFBFE;
-            --md-sys-color-surface-variant: #E7E0EC;
-            --md-sys-color-on-surface-variant: #49454F;
-            --md-sys-color-outline: #79747E;
+            /* 主色容器 (Primary Container) - 更淡的天蓝色 */
+            --md-sys-color-primary-container: #E3F2FD;
+            --md-sys-color-on-primary-container: #1565C0;
             
-            /* 社交品牌特征色 */
+            /* 背景和表面色 (Background & Surface) - 极浅的蓝灰色，带点莫奈梦幻感 */
+            --md-sys-color-background: #F5F9FC;
+            --md-sys-color-on-background: #37474F;
+            --md-sys-color-surface: #F5F9FC;
+            --md-sys-color-on-surface: #37474F;
+            
+            /* 表面变体 (Surface Variant) - 比 Surface 稍深的蓝灰色，用于卡片 */
+            --md-sys-color-surface-variant: #ECEFF1;
+            --md-sys-color-on-surface-variant: #546E7A;
+            
+            /* 轮廓色 (Outline) - 中等强度的蓝灰色，用于边框 */
+            --md-sys-color-outline: #B0BEC5;
+            
+            /* 社交品牌特征色 (保留，与天蓝色调并不冲突) */
             --color-email: #EA4335;
             --color-qq: #12B7F5;
             --color-telegram: #2AABEE;
@@ -56,6 +66,7 @@
             font-size: 22px;
             font-weight: 500;
             background-color: var(--md-sys-color-surface);
+            color: var(--md-sys-color-primary); /* 让标题也使用主色 */
             box-shadow: 0 1px 3px rgba(0,0,0,0.08);
             z-index: 10;
             flex-shrink: 0;
@@ -98,12 +109,13 @@
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid var(--md-sys-color-primary-container);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease;
             cursor: pointer;
         }
 
         .avatar:hover {
             transform: scale(1.05);
+            border-color: var(--md-sys-color-primary);
         }
 
         /* Material 3 Card */
@@ -134,7 +146,7 @@
         .card p {
             font-size: 15px;
             line-height: 1.6;
-            color: var(--md-sys-color-on-background);
+            color: var(--md-sys-color-on-surface);
         }
 
         /* 社交网络按钮 */
@@ -157,11 +169,12 @@
             font-size: 14px;
             border: none;
             cursor: pointer;
-            transition: opacity 0.2s;
+            transition: opacity 0.2s, transform 0.1s;
         }
 
         .btn-social:active {
             opacity: 0.8;
+            transform: scale(0.98);
         }
 
         /* ====== 第二页：使用的设备 ====== */
@@ -188,7 +201,7 @@
         .device-name {
             font-weight: 600;
             font-size: 16px;
-            color: var(--md-sys-color-on-background);
+            color: var(--md-sys-color-on-surface);
         }
 
         .device-remark {
@@ -212,13 +225,15 @@
             border-radius: 8px;
             padding: 12px;
             text-decoration: none;
-            color: var(--md-sys-color-on-background);
+            color: var(--md-sys-color-on-surface);
             font-weight: 500;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
         }
 
         .chip:hover {
-            background-color: var(--md-sys-color-surface-variant);
+            background-color: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+            border-color: var(--md-sys-color-primary);
         }
 
         /* ====== 底部导航栏 ====== */
@@ -246,12 +261,12 @@
             height: 64px;
             border-radius: 16px;
             color: var(--md-sys-color-on-surface-variant);
-            transition: background-color 0.2s;
+            transition: color 0.2s;
         }
 
         .nav-item .material-symbols-outlined {
             margin-bottom: 4px;
-            transition: font-variation-settings 0.2s;
+            transition: font-variation-settings 0.2s, color 0.2s;
         }
 
         .nav-label {
@@ -271,6 +286,7 @@
 
         .nav-item.active .material-symbols-outlined {
             font-variation-settings: 'FILL' 1; /* 激活时图标变为实心 */
+            color: var(--md-sys-color-primary); /* 让激活图标也使用主色 */
         }
 
         .icon-container {
@@ -313,38 +329,38 @@
     <main>
         <section id="page-info" class="page active">
             <div class="avatar-container">
-                <a href="https://via.placeholder.com/600" target="_blank" title="点我可以查看高清原图哦~">
-                    <img src="https://via.placeholder.com/150" alt="Avatar" class="avatar">
+                <a href="https://www.pixiv.net/artworks/142532362" target="_blank" title="点我可以查看高清原图哦~">
+                    <img src="https://picui.ogmua.cn/s1/2026/03/27/69c6084cdece5.webp" alt="Avatar" class="avatar">
                 </a>
             </div>
 
             <div class="card">
-                <div class="quote">“不折腾，不青春；在代码与语言中寻找世界的规律。”</div>
+                <div class="quote">“text”</div>
                 
                 <h3 class="section-title">兴趣与爱好</h3>
-                <p>热衷于 Android 系统的深度定制与探索（如编译 AOSP、玩转 Shizuku 环境），对 PC 硬件组装和性能优化有浓厚兴趣。闲暇之余，也沉迷于语言学的世界，正在学习日语、西班牙语以及世界语，同时也在积极探索本地大语言模型（LLM）的部署与应用。</p>
+                <p>text</p>
                 
                 <h3 class="section-title">给大家的话</h3>
-                <p>很高兴在这里遇见你！如果你也对技术折腾感兴趣，欢迎随时找我交流。最近我正在努力锻炼，朝着一年内瘦到 65kg 的目标迈进，也祝愿大家都能拥有健康的身体和有趣的生活！</p>
+                <p>text</p>
             </div>
 
             <div class="social-grid">
-                <button class="btn-social" style="background-color: var(--color-email);" onclick="copyEmail('xiaopa@example.com')">
+                <button class="btn-social" style="background-color: var(--color-email);" onclick="copyEmail('ShiauPa@outlook.com')">
                     <i class="fa-solid fa-envelope"></i> Email
                 </button>
-                <a href="#" class="btn-social" style="background-color: var(--color-qq);">
+                <a href="https://qm.qq.com/q/LEBYoXhweS" class="btn-social" style="background-color: var(--color-qq);">
                     <i class="fa-brands fa-qq"></i> QQ
                 </a>
-                <a href="#" class="btn-social" style="background-color: var(--color-telegram);">
+                <a href="https://t.me/ShiauPa46" class="btn-social" style="background-color: var(--color-telegram);">
                     <i class="fa-brands fa-telegram"></i> Telegram
                 </a>
                 <a href="#" class="btn-social" style="background-color: var(--color-discord);">
                     <i class="fa-brands fa-discord"></i> Discord
                 </a>
-                <a href="#" class="btn-social" style="background-color: var(--color-bluesky);">
+                <a href="https://bsky.app/profile/shiaupa.bsky.social" class="btn-social" style="background-color: var(--color-bluesky);">
                     <i class="fa-brands fa-bluesky"></i> Bluesky
                 </a>
-                <a href="#" class="btn-social" style="background-color: var(--color-steam);">
+                <a href="https://steamcommunity.com/id/ShiauPa/" class="btn-social" style="background-color: var(--color-steam);">
                     <i class="fa-brands fa-steam"></i> Steam
                 </a>
             </div>
@@ -352,38 +368,63 @@
 
         <section id="page-devices" class="page">
             <h3 class="section-title" style="margin-left: 8px;">正在使用的设备</h3>
+
+            <div class="device-card">
+                <span class="material-symbols-outlined device-icon">developer_board</span>
+                <div class="device-info">
+                    <div class="device-name">AMD Ryzen 7 5700G</div>
+                    <div class="device-remark">稳定可靠的前代核心</div>
+                </div>
+            </div>
             
             <div class="device-card">
                 <span class="material-symbols-outlined device-icon">memory</span>
                 <div class="device-info">
                     <div class="device-name">AMD Radeon RX 6750 GRE 12G</div>
-                    <div class="device-remark">主力显卡，降压超频与本地 AI 运算担当</div>
+                    <div class="device-remark">主力显卡，掉驱动神卡（逃）</div>
                 </div>
             </div>
 
             <div class="device-card">
                 <span class="material-symbols-outlined device-icon">smartphone</span>
                 <div class="device-info">
-                    <div class="device-name">OnePlus Ace 5</div>
-                    <div class="device-remark">主力通讯与测试设备，已解锁折腾</div>
+                    <div class="device-name">Redmi K60</div>
+                    <div class="device-remark">主力通讯与测试设备，等待解锁中</div>
                 </div>
             </div>
 
-            <h3 class="section-title" style="margin-top: 24px; margin-left: 8px;">使用过的设备</h3>
-            
             <div class="device-card">
-                <span class="material-symbols-outlined device-icon">phone_android</span>
+                <span class="material-symbols-outlined device-icon">smartphone</span>
                 <div class="device-info">
-                    <div class="device-name">Redmi K50</div>
-                    <div class="device-remark">曾经的备用机与刷机好伙伴</div>
+                    <div class="device-name">OnePlus 8T</div>
+                    <div class="device-remark">用了很久的刷机小王子，2026依旧耐用</div>
                 </div>
             </div>
-            
+
             <div class="device-card">
-                <span class="material-symbols-outlined device-icon">developer_board</span>
+                <span class="material-symbols-outlined device-icon">fitness_traker</span>
                 <div class="device-info">
-                    <div class="device-name">AMD Ryzen 7 5700G</div>
-                    <div class="device-remark">稳定可靠的前代核心</div>
+                    <div class="device-name">Xiaomi Smart Band 9 Pro</div>
+                    <div class="device-remark">某人说要减肥买的手环，结果沦为睡眠监测设备（</div>
+                </div>
+            </div>
+
+            <div class="device-card">
+                <span class="material-symbols-outlined device-icon">earbuds_2</span>
+                <div class="device-info">
+                    <div class="device-name">OnePlus Buds 4</div>
+                    <div class="device-remark">音乐不停歇！</div>
+                </div>
+            </div>
+
+
+            <h3 class="section-title" style="margin-top: 24px; margin-left: 8px;">使用过的设备</h3>
+
+            <div class="device-card">
+                <span class="material-symbols-outlined device-icon">smartphone</span>
+                <div class="device-info">
+                    <div class="device-name">OnePlus Ace 5</div>
+                    <div class="device-remark">解锁折腾过的设备，后面为了买6750GRE显卡1500卖出了qwq</div>
                 </div>
             </div>
         </section>
@@ -392,7 +433,7 @@
             <div class="chip-grid">
                 <a href="#" class="chip">朋友的博客 A</a>
                 <a href="#" class="chip">技术大佬 B</a>
-                <a href="#" class="chip">开源项目 C</a>
+                <a href="#" class="chip">开源项目 D</a>
                 <a href="#" class="chip">设计灵感 D</a>
             </div>
         </section>
